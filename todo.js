@@ -42,7 +42,53 @@ const populateTodos = () => {
     toDos.appendChild(toDoList)
 
 }//end loop here 
+
 } //end fxn
+
+function clearTodos () {
+    //do it like i did for Tic Tac Toe
+
+
+const todos = document.getElementsByTagName("OL"); 
+
+//loops over the html collection of IDs and clear out the Xs and Os 
+for (i=0; i < todos.length; i++) {
+
+    //will log out the id of each square as it loops over them.
+    console.log(todos[i].id);
+
+    //sets the innerHTML to null to replace the "X" or "O"
+    todos[i].innerHTML=null;
+    }
+}
+
+function filterById () {
+    let toDos = document.getElementById("todo-list")
+
+    const num= document.getElementById("number_input").value
+
+    //filter the array
+    //const result = words.filter(word) => word.length > 6);
+    const filteredArray = arrayOfTodos.filter(array => array.userId ==num)
+
+    
+    for (i = 0; i < filteredArray.length; i++) {
+
+
+        //createElement to make a new LI
+        let toDoList = document.createElement("LI")
+
+        //createTextNode inside the li using the title property
+        let toDoTextNode = document.createTextNode(filteredArray[i].title)
+
+        //now append the text to the new element
+        toDoList.appendChild(toDoTextNode)
+
+        //then append the element to the ol element
+        toDos.appendChild(toDoList)
+    }
+}
+
 
 //// Start with getting just the first item and its title property.
 //// Then capture the ol item into a variable (getElementById)
