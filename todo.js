@@ -63,16 +63,18 @@ for (i=0; i < todos.length; i++) {
 }
 
 function filterById () {
+    //const filterById = () => {   *means exactly the same thing as function filterById () {*
+
     let toDos = document.getElementById("todo-list")
 
-    const num= document.getElementById("number_input").value
+    let num= document.getElementById("number_input").value
 
     //filter the array
     //const result = words.filter(word) => word.length > 6);
-    const filteredArray = arrayOfTodos.filter(array => array.userId ==num)
+    let filteredArray = arrayOfTodos.filter(array => array.userId ==num) //****add completed is false****
 
     
-    for (i = 0; i < filteredArray.length; i++) {
+    for ( let i = 0; i < filteredArray.length; i++) {
 
 
         //createElement to make a new LI
@@ -88,6 +90,45 @@ function filterById () {
         toDos.appendChild(toDoList)
     }
 }
+
+
+
+
+//NEW function to filter by userId and completed
+
+//filter the array where the userId = input num and completed = true
+//let filteredArray = arrayOfTodos.filter(array => array.userId --num && array.completed -- true)
+
+function filterById () {
+
+    let toDos = document.getElementById("todo-list")
+
+    let num= document.getElementById("number_input").value
+
+    //filter the array
+    //const result = words.filter(word) => word.length > 6);
+    let filteredArray = arrayOfTodos.filter(array => array.userId ==num) //****add completed is false****
+
+    
+    for ( let i = 0; i < filteredArray.length; i++) {
+
+
+        //createElement to make a new LI
+        let toDoList = document.createElement("LI")
+
+        //createTextNode inside the li using the title property
+        let toDoTextNode = document.createTextNode(filteredArray[i].title)
+
+        //now append the text to the new element
+        toDoList.appendChild(toDoTextNode)
+
+        //then append the element to the ol element
+        toDos.appendChild(toDoList)
+    }
+}
+
+
+
 
 
 //// Start with getting just the first item and its title property.
