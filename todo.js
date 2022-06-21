@@ -25,10 +25,10 @@ const logTodos = () => {
 
 const populateTodos = () => {
   //start for loop here
-  for (i = 0; i < arrayOfTodos.length; i++) {
-    let toDos = document.getElementById("todo-list");
+  for (let i = 0; i < arrayOfTodos.length; i++) {
+    let toDos = document.getElementById("todo-list"); //capturing element in a variable
 
-    let toDoList = document.createElement("LI");
+    let toDoList = document.createElement("LI"); //declaring new variable-creating list
 
     let toDoTextNode = document.createTextNode(arrayOfTodos[i].title); //first title
 
@@ -73,24 +73,45 @@ const filterById = () => {
     let toDoList = document.createElement("LI");
 
     //createTextNode inside the li using the title property
-    // let toDoTextNode = document.createTextNode(filteredArray[i].title)
+    let toDoTextNode = document.createTextNode(filteredArray[i].title);
 
     //now append the text to the new element
-    // toDoList.appendChild(toDoTextNode)
+    toDoList.appendChild(toDoTextNode);
 
-    toDoList.innerHTML =
-      "<b>User:</b>" +
-      filteredArray[i].userId +
-      ", <b>Title:</b>" +
-      filteredArray[i].title +
-      ", <b>Completed:</b>" +
-      filteredArray[i].completed;
+    // toDoList.innerHTML =
+    //   "<b>User:</b>" +
+    //   filteredArray[i].userId +
+    //   ", <b>Title:</b>" +
+    //   filteredArray[i].title +
+    //   ", <b>Completed:</b>" +
+    //   filteredArray[i].completed;
+
+    toDoList.innerHTML = `<b>User:</b> ${filteredArray[i].userId}, <b>Title:</b> ${filteredArray[i].title}, <b>Completed:</b> ${filteredArray[i].completed}`;
+
     toDos.appendChild(toDoList);
-    //then append the element to the ol element.
-    //toDos.appendChild(toDoList)
-    // toDos.appendChild(toDoList)
-  } //end loop
-}; //end fxn
+  }
+};
+
+function filterByCompleted() {
+  const inputEl = document.getElementById("number_input");
+  const num = inputEl.value;
+
+  const filteredArray = arrayOfTodos.filter(
+    (array) => array.userId == num && array.completed == true
+  );
+
+  for (let i = 0; i < filteredArray.length; i++) {
+    let toDos = document.getElementById("todo-list");
+
+    let toDoList = document.createElement("li");
+
+    let toDoTextNode = document.createTextNode(filteredArray[i].title);
+
+    toDoList.appendChild(toDoTextNode);
+
+    toDos.appendChild(toDoList);
+  }
+}
 
 ////  create a branch called: " Todo-Filtering ".
 //// Fetch the same data.
@@ -103,4 +124,4 @@ const filterById = () => {
 // You can create two more buttons that when clicked:
 // removes those todos from the view
 // and shows only todos that are either:
-// completed
+// completed/not completed
