@@ -117,7 +117,9 @@ function filterById () {
         let toDoList = document.createElement("LI")
 
         //createTextNode inside the li using the title property
-        let toDoTextNode = document.createTextNode(filteredArray[i].title)
+        let toDoTextNode = document.createTextNode(filteredArray[i]).title
+
+        let userId = document.createTextNode(filteredArray[i]).userId
 
         //now append the text to the new element
         toDoList.appendChild(toDoTextNode)
