@@ -93,8 +93,7 @@ const filterById = () => {
 };
 
 function filterByCompleted() {
-  const inputEl = document.getElementById("number_input");
-  const num = inputEl.value;
+  const num = document.getElementById("number_input").value;
 
   const filteredArray = arrayOfTodos.filter(
     (array) => array.userId == num && array.completed == true
