@@ -1,4 +1,9 @@
 .container {
-    margin: 0 auto;
-    width: 750px;
+  width: 300px;
+}
+
+body {
+  background-color: #23916c;
+  margin-top: 10%;
+  margin-left: 30%;
 }
